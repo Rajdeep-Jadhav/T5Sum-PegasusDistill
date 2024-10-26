@@ -2,31 +2,11 @@ from flask import Flask, render_template, request, jsonify
 import torch
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 from pathlib import Path
-import shutil
-import os
 
 app = Flask(__name__)
 
-# Define the target directory for unzipping the model
+# Define the target directory for the trained model
 target_dir = Path("trained_model")
-
-# Create the target directory if it doesn't exist
-if not target_dir.exists():
-    target_dir.mkdir(parents=True, exist_ok=True)
-
-# Path to the ZIP file
-zip_file_path = Path("transformer.zip")
-
-# Check if the ZIP file exists and is a valid ZIP file
-if zip_file_path.is_file() and zip_file_path.suffix == '.zip':
-    # Use shutil to extract files
-    try:
-        shutil.unpack_archive(zip_file_path, target_dir)
-        print(f"Successfully extracted {zip_file_path} to {target_dir}")
-    except Exception as e:
-        print(f"Error while extracting zip file: {e}")
-else:
-    print(f"{zip_file_path} is not a valid ZIP file or does not exist.")
 
 # Load the fine-tuned T5 model and tokenizer from the target directory
 try:

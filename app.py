@@ -2,16 +2,32 @@ from flask import Flask, render_template, request, jsonify
 import torch
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 from pathlib import Path
+import shutil
 import os
 
 app = Flask(__name__)
 
-# Define the target directory for the trained model
+# Define the target directory for unzipping the model
 target_dir = Path("trained_model")
+
+# Create the target directory if it doesn't exist
+if not target_dir.exists():
+    target_dir.mkdir(parents=True, exist_ok=True)
+
+# Path to the ZIP file (not needed if already unzipped)
+zip_file_path = Path("transformer.zip")
+
+# Check if the model directory exists and is valid
+if target_dir.is_dir() and any(target_dir.iterdir()):
+    print(f"Model directory {target_dir} exists and is valid.")
+else:
+    print(f"Model directory {target_dir} does not exist or is empty.")
 
 # Load the fine-tuned T5 model and tokenizer from the target directory
 try:
+    print(f"Loading tokenizer from: {str(target_dir)}")
     tokenizer = T5Tokenizer.from_pretrained(str(target_dir))
+    print(f"Loading model from: {str(target_dir)}")
     model = T5ForConditionalGeneration.from_pretrained(str(target_dir))
     print("Model and tokenizer loaded successfully.")
 except Exception as e:
@@ -47,5 +63,4 @@ def generate_text():
     return jsonify({'generated_text': generated_text})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
-
+    app.run(debug=True)

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Summarizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <!-- Centered Heading in the Navbar -->
+        <h1 class="navbar-heading pacifico-regular">TEST SUMMARIZER</h1>
+        <!-- Placeholder for the image on the top right -->
+        <img class="navbar-image" src="{{ url_for('static', filename='placeholder-image.png') }}" alt="Profile Image">
+    </div>
+
+    <div class="container"> 
+        <!-- Input section for user article -->
+        <div class="input-section">
+            <textarea id="input-text" placeholder="Enter Article."></textarea>
+        </div>
+
+        <!-- Control buttons (Summarize, Copy, Download) -->
+        <div class="controls">
+            <button class="summarize-btn" onclick="summarizeText()">Summarize</button>
+            <div class="icons">
+                <button title="Copy" onclick="copyText()">
+                    <img src="{{ url_for('static', filename='paper-icon.png') }}" alt="Copy">
+                </button>
+                <button title="Download" onclick="downloadText()">
+                    <img src="{{ url_for('static', filename='download-icon.png') }}" alt="Download">
+                </button>
+            </div>
+        </div>
+
+        <!-- Output box for the summarized text -->
+        <div class="output-section">
+            <textarea id="output-box" readonly placeholder="Summary will appear here..."></textarea>
+        </div>
+
+        <!-- Footer with credits -->
+        <div class="footer pacifico-regular">
+            <p>made by:<br> Rajdeep Jadhav <br> Janhavi Yadav</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to send text to the Flask app for summarization
+        async function summarizeText() {
+            const inputText = document.getElementById("input-text").value;
+            const response = await fetch('/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ input_text: inputText })
+            });
+            const data = await response.json();
+            document.getElementById("output-box").value = data.generated_text;
+        }
+
+        // Function to copy the summary text
+        function copyText() {
+            const outputBox = document.getElementById("output-box");
+            outputBox.select();
+            document.execCommand("copy");
+        }
+
+        // Function to download the summary text as a .txt file
+        function downloadText() {
+            const text = document.getElementById("output-box").value;
+            const element = document.createElement("a");
+            element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+            element.setAttribute("download", "summary.txt");
+            element.style.display = "none";
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
+</body>
+</html>

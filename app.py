@@ -62,6 +62,6 @@ def generate_text():
     generated_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
     return jsonify({'generated_text': generated_text})
 
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Default to 5000 if no port is set
-    app.run(host="0.0.0.0", port=port, debug=True)
+# if __name__ == '__main__':
+#     port = int(os.environ.get("PORT", 5000))  # Default to 5000 if no port is set
+#     app.run(host="0.0.0.0", port=port, debug=True)

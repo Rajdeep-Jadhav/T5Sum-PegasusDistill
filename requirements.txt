@@ -4,3 +4,4 @@ safetensors
 flask
 sentencepiece
 protobuf
+gunicorn

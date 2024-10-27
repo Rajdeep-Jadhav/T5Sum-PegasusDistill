@@ -63,4 +63,5 @@ def generate_text():
     return jsonify({'generated_text': generated_text})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Default to 5000 if no port is set
+    app.run(host="0.0.0.0", port=port, debug=True)

@@ -1,5 +1,3 @@
-Here's an updated **GitHub-style README** with a bash-style structure for setup and usage instructions:
-
 ---
 
 # Fine-Tuned T5 Summarization API
@@ -56,22 +54,6 @@ The app will be available at `http://localhost:5000`.
 **Method**: `POST`  
 **Content-Type**: `application/json`  
 
-#### Request Example:
-```bash
-curl -X POST http://localhost:5000/generate \
--H "Content-Type: application/json" \
--d '{
-    "input_text": "The quick brown fox jumps over the lazy dog. This is an example text for summarization."
-}'
-```
-
-#### Response Example:
-```json
-{
-    "generated_text": "The quick brown fox jumps over the lazy dog."
-}
-```
-
 ---
 
 ## File Structure
@@ -112,11 +94,3 @@ curl -X POST http://localhost:5000/generate \
   ```
 
 ---
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize the `README.md` file to suit your preferences or include additional details. 🚀

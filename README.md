@@ -1,6 +1,6 @@
----
+# *Fine-Tuned T5 Summarization API*
 
-# Fine-Tuned T5 Summarization API
+## Project Overview 
 
 A Flask-based API for text summarization using a fine-tuned T5 model. The model is trained on the **CNN/DailyMail** dataset, optimized via knowledge distillation with Pegasus Large, and further enhanced using custom techniques for cleaner and more concise summaries.
 
@@ -12,6 +12,10 @@ A Flask-based API for text summarization using a fine-tuned T5 model. The model 
   - Removes low-relevance lines based on TF-IDF scores.
   - Eliminates repeated lines for cleaner summaries.
 - **Flask API**: Simple REST API for generating summaries.
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/494e6f68-0acd-4ca8-9efd-b3ac2663441c" alt="Project Image" width="750"/>
+</div>
 
 ---
 

@@ -23,9 +23,14 @@ Meanwhile, wind energy projects are setting records with the installation of off
 Additionally, researchers are focusing on energy storage solutions, like advanced lithium-ion and solid-state batteries, to address the intermittency of renewable power sources. 
 While challenges remain in infrastructure and adoption, experts are optimistic that renewable energy could account for a majority of global energy consumption by 2050.] 
 
-Summary: [Renewable energy could account for a majority of global energy consumption by 2050. The development of perovskite solar cells has seen a significant breakthrough. 
-The renewable energy sector continues to expand rapidly] 
+Summary: [*Renewable energy could account for a majority of global energy consumption by 2050. The development of perovskite solar cells has seen a significant breakthrough. 
+The renewable energy sector continues to expand rapidly*] 
 
+## Achivement
+- Successfully trained a T5-Small model on the CNN/Daily Mail dataset using knowledge distillation from Pegasus-Large.
+- The model generates high-quality summaries, effectively captures key aspects and retain important information from the text.
+- All this while being resource-efficient and using a fraction of the resources compared to larger models.
+  
 ---
 
 ## Installation

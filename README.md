@@ -17,6 +17,15 @@ A Flask-based API for text summarization using a fine-tuned T5 model. The model 
   <img src="https://github.com/user-attachments/assets/494e6f68-0acd-4ca8-9efd-b3ac2663441c" alt="Project Image" width="750"/>
 </div>
 
+Article: [The renewable energy sector continues to expand rapidly as governments and private companies invest in green technology to combat climate change. 
+Solar power has seen a significant breakthrough with the development of perovskite solar cells, which promise higher efficiency at a lower cost. 
+Meanwhile, wind energy projects are setting records with the installation of offshore wind turbines capable of producing several megawatts of electricity. 
+Additionally, researchers are focusing on energy storage solutions, like advanced lithium-ion and solid-state batteries, to address the intermittency of renewable power sources. 
+While challenges remain in infrastructure and adoption, experts are optimistic that renewable energy could account for a majority of global energy consumption by 2050.] 
+
+Summary: [Renewable energy could account for a majority of global energy consumption by 2050. The development of perovskite solar cells has seen a significant breakthrough. 
+The renewable energy sector continues to expand rapidly] 
+
 ---
 
 ## Installation
